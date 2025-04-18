@@ -43,8 +43,3 @@ jobs:
     - name: Run Serenity BDD Tests
       run: mvn clean verify -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver
 
-    - name: Upload Serenity Report
-      uses: actions/upload-artifact@v3
-      with:
-        name: serenity-report
-        path: target/site/serenity/ 
