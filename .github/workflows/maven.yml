@@ -14,32 +14,6 @@ jobs:
       with:
         java-version: 21
    
-    - name: Install Google Chrome and ChromeDriver
-      run: |
-        sudo apt update
-        sudo apt install -y wget curl unzip gnupg
-
-        # Install Google Chrome
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt --fix-broken install -y
-
-        # Get installed Chrome version
-        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
-        echo "Installed Chrome version: $CHROME_VERSION"
-
-        # Download matching ChromeDriver from official Chrome for Testing site
-        DRIVER_BASE_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${CHROME_VERSION}/linux64"
-        wget "${DRIVER_BASE_URL}/chromedriver-linux64.zip"
-
-        # Extract and install chromedriver
-        unzip chromedriver-linux64.zip
-        sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-        sudo chmod +x /usr/local/bin/chromedriver
-
-        # Verify installations
-        google-chrome --version
-        chromedriver --version
-
-    - name: Run Serenity BDD Tests
-      run: mvn clean verify -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver
+    - name: Build and Run Cucumber Tests with Maven
+      run: mvn clean install -DskipTests=false 
 
