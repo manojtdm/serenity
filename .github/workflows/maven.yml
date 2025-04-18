@@ -15,9 +15,5 @@ jobs:
         java-version: 21
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-      
-    - name: Install dependencies
-      run: mvn install
-
     - name: Run tests
-      run: mvn test 
+      run: mvn clean test 
