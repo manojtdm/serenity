@@ -6,8 +6,12 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
 import pages.DashboardPage;
 import pages.HomePage;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LoginToApplication {
+	
+	
 	
 	@Steps
 	HomePage homePage;
@@ -18,6 +22,7 @@ public class LoginToApplication {
 	@Given("user is on home page")
 	public void user_is_on_home_page() {
     
+	WebDriverManager.chromedriver().setup();
     homePage.openApplication();
 	}
 
