@@ -25,7 +25,7 @@ public class PODemoDashboardPage extends PageObject {
 	
 	public void logoutVerified() {
 		// TODO Auto-generated method stub
-			$(By.xpath("//p[@class='oxd-userdropdown-name' and text()='Arthur Antunes']")).click();
+			$(By.xpath("//p[@class='oxd-userdropdown-name']")).click();
 			$(By.xpath("//a[text()='Logout']")).click();
 			$(By.xpath("//h5[text()='Login']")).isDisplayed();
 			System.out.println("logout verified");
