@@ -110,6 +110,12 @@
         	<version>7.14.0</version>
        </dependency>
        
+       <dependency>
+  			<groupId>io.github.bonigarcia</groupId>
+  			<artifactId>webdrivermanager</artifactId>
+  			<version>5.7.0</version>
+		</dependency>
+       
     
     </dependencies>
     <build>
@@ -131,6 +137,7 @@
                         <include>**/Test*.java</include>
                         <include>**/*TestSuite.java</include>
                         <include>**/When*.java</include>
+                        <include>**/TestRunner.java</include>
                     </includes>
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
